@@ -203,7 +203,7 @@ void showConfig()
   DebugF("key      :"); Debugln(config.jeedom.apikey);
   DebugF("finger   :");
   for (int i=0; i < CFG_JDOM_FINGER_PRINT_SIZE; i++) {
-    DEBUG_SERIAL.print(config.jeedom.fingerprint[i], HEX);
+    DebugIntFormat(config.jeedom.fingerprint[i], HEX);
     DebugF(" ");
   }
   Debugln();

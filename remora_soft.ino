@@ -208,7 +208,7 @@ int WifiHandleConn(boolean setup = false)
     _wdt_feed();
 
     DebugF("========== SDK Saved parameters Start");
-    WiFi.printDiag(DEBUG_SERIAL);
+    DebugWiFi();
     DebuglnF("========== SDK Saved parameters End");
 
     #if defined (DEFAULT_WIFI_SSID) && defined (DEFAULT_WIFI_PASS)

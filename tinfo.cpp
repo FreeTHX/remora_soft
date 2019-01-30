@@ -88,7 +88,7 @@ void DataCallback(ValueList * me, uint8_t flags)
   Debug(me->value);
 
   //Debug(" Flags=0x");
-  //DEBUG_SERIAL.print(flags, HEX);
+  //DebugIntFormat(flags, HEX);
 
   if ( flags & TINFO_FLAGS_NOTHING ) DebugF(" Nothing");
   if ( flags & TINFO_FLAGS_ADDED )   DebugF(" Added");

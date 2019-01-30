@@ -135,9 +135,9 @@ uint8_t ll_Dump(NodeList * me, unsigned long sec)
 
       index++;
       Debug(index);        DebugF(") ") ;
-      DebugF("Group:");   DEBUG_SERIAL.print(me->groupid, DEC) ;
-      DebugF("  Node:");  DEBUG_SERIAL.print(me->nodeid, DEC) ;
-      DebugF("  RSSI:");  DEBUG_SERIAL.print(me->rssi, DEC) ;
+      DebugF("Group:");   DebugIntFormat(me->groupid, DEC) ;
+      DebugF("  Node:");  DebugIntFormat(me->nodeid, DEC) ;
+      DebugF("  RSSI:");  DebugIntFormat(me->rssi, DEC) ;
       DebugF("  seen:");  Debug(sec-me->lastseen) ;
       DebuglnF("") ;
     }

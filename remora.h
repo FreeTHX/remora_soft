@@ -138,6 +138,9 @@ extern "C" {
 #define DebuglnF(x) DEBUG_SERIAL.println(F(x))
 #define Debugf(...) DEBUG_SERIAL.printf(__VA_ARGS__)
 #define Debugflush  DEBUG_SERIAL.flush
+#define DebugWiFi() WiFi.printDiag(DEBUG_SERIAL)
+#define DebugIntFormat(x,format) DEBUG_SERIAL.print(x, format)
+#define DebugUpdateError() Update.printError(DEBUG_SERIAL)
 #else
 #define Debug(x)
 #define Debugln(x)
@@ -145,6 +148,9 @@ extern "C" {
 #define DebuglnF(x)
 #define Debugf(...)
 #define Debugflush()
+#define DebugWiFi()
+#define DebugIntFormat(x,format)
+#define DebugUpdateError()
 #endif
 
 #ifdef ESP8266

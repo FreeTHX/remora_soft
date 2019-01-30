@@ -85,7 +85,7 @@ uint8_t i2c_scan()
       DebugF("I2C device found at address 0x");
       if (address<16)
         DebugF("0");
-      DEBUG_SERIAL.print(address, HEX);
+      DebugIntFormat(address, HEX);
 
       if (address>=0x20 && address<=0x27)
         Debugln("-> MCP23017 !");

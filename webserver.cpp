@@ -988,14 +988,14 @@ void handle_fw_upload(AsyncWebServerRequest *request, String filename, size_t in
       //DebuglnF("Command U_SPIFFS");
     }
     if (!Update.begin((ESP.getFreeSketchSpace() - 0x1000) & 0xFFFFF000, command)) {
-      Update.printError(DEBUG_SERIAL);
+      DebugUpdateError();
     }
   }
 
   if (!Update.hasError()) {
     if (Update.write(data, len) != len) {
       DebugF("*** UPDATE ERROR: ");
-      Update.printError(DEBUG_SERIAL);
+      DebugUpdateError();
       if (ota_blink) {
         LedRGBON(COLOR_RED);
       } else {
@@ -1018,7 +1018,7 @@ void handle_fw_upload(AsyncWebServerRequest *request, String filename, size_t in
     if (Update.end(true)) {
       Debugf("Update Success: %uB\n", index+len);
     } else {
-      Update.printError(DEBUG_SERIAL);
+      DebugUpdateError();
     }
     LedRGBOFF();
   }

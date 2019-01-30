@@ -223,11 +223,11 @@ void rfm_loop(void)
         DebugF(" ACKED");
 
 
-      DebugF(" <- node:");  DEBUG_SERIAL.print(rfData.nodeid,DEC);
+      DebugF(" <- node:");  DebugIntFormat(rfData.nodeid,DEC);
       DebugF(" size:");     Debug(rfData.size);
-      DebugF(" type:");     DEBUG_SERIAL.print(decode_frame_type(cmd));
-      DebugF(" (0x");       DEBUG_SERIAL.print(cmd,HEX);
-      DebugF(") RSSI:");    DEBUG_SERIAL.print(rfData.rssi,DEC);
+      DebugF(" type:");     Debug(decode_frame_type(cmd));
+      DebugF(" (0x");       DebugIntFormat(cmd,HEX);
+      DebugF(") RSSI:");    DebugIntFormat(rfData.rssi,DEC);
       DebugF("dB  seen :");
       Debug(timeAgo(seen));
 
@@ -284,9 +284,9 @@ void rfm_loop(void)
      // Start line with a # (comment)
      // indicate external parser that it's just debug information
      DebugF("\r\n# -> ");
-     DEBUG_SERIAL.print(rfData.nodeid,DEC);
+     DebugIntFormat(rfData.nodeid,DEC);
      DebugF(" PINGBACK (");
-     DEBUG_SERIAL.print(ppl->rssi,DEC);
+     DebugIntFormat(ppl->rssi,DEC);
      DebuglnF("dB)");
    }
 
